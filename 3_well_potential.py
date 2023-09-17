@@ -17,8 +17,8 @@ A = cm1.slider('A', -10000, 0, -5450, 1)
 B = cm1.slider('B', -10000, 0, -5120, 1)
 C = cm1.slider('C', -10000, 0, -4753, 1)
 D = cm1.slider('D', 0, 50000, 36500, 100)
-E = cm1.slider('E', 0, 50000, 38350, 100)
-F = cm1.slider('F', 0, 50000, 39150, 100)
+E = cm1.slider('E', 0, 50000, 34700, 100)
+F = cm1.slider('F', 0, 50000, 35200, 100)
 T = cm1.slider('T', 0, 2000, 1030, 10)
 R = 8.31
 
@@ -38,9 +38,8 @@ for i in range(len(C1)):
         log_c1 = c1 * np.log(c1 + 1e-10) if c1 > 0 else 0
         log_c2 = c2 * np.log(c2 + 1e-10) if c2 > 0 else 0
         log_1_minus_c1_minus_c2 = (1 - c1 - c2) * np.log(1 - c1 - c2 + 1e-10) if (1 - c1 - c2) > 0 else 0
-        Gibbs_tri[i][j] = A * c1 + B * c2 + C * (1 - c1 - c2) + D * c1 * c2 + E * c2 * (1 - c1 - c2) + F * (1 - c1 - c2) * c1 + R * T * (
-                    c1 * np.log(c1) + c2 * np.log(c2) + (1 - c1 - c2) * np.log(1 - c1 - c2))
-
+        Gibbs_tri[i][j] = A * c1 + B * c2 + C * (1 - c1 - c2) + D * c1 * c2 + E * c2 * (1 - c1 - c2) + F * (1 - c1 - c2) * c1 + R * T * (c1 * np.log(c1) + c2 * np.log(c2) + (1 - c1 - c2) * np.log(1 - c1 - c2))
+        # Gibbs_tri[i][j] = A * c1 + B * c2 + C * (1 - c1 - c2) + D * c1 * c2 + E * c2 * (1 - c1 - c2) + F * (1 - c1 - c2) * c1 + R * T * (log_c1 + log_c2 +  log_1_minus_c1_minus_c2)
 
 
 # Create a 3D plot
@@ -52,7 +51,7 @@ fig.add_trace(surface)
 # Add labels and title
 fig.update_layout(scene=dict(xaxis_title=r'c1', yaxis_title=r'c2', zaxis_title='Gibbs'))
 fig.update_layout(scene=dict(zaxis=dict(range=[-6000, 0], type='linear')))
-fig.update_layout(scene=dict(camera=dict(eye=dict(x=1.5, y=1.5, z=0.2))))
+fig.update_layout(scene=dict(camera=dict(eye=dict(x=-1.5, y=-1.5, z=0.5))))
 
 fig.update_layout(width=1200, height=900)
 
