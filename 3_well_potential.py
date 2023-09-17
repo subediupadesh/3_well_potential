@@ -8,7 +8,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 st.title('Free Energy 3 Well Potential')
-st.write('For the equation type : G$_{free}$ = A.c$_1$ + B.c$_2$ + C.(1 - c$_1$ - c$_2$) + D.c$_1$.c$_2$ + E.c$_2$.(1 - c$_1$ - c$_2$) + F.(1 - c$_1$ - c$_2$).c$_1$ + R.T.[c$_1$.ln(c$_1$) + c$_2$.ln(c$_2$) + (1 - c$_1$ - c$_2$).ln(1 - c$_1$ - c$_2$)')
+st.write('For the equation type : G$_{free}$ = A.c$_1$ + B.c$_2$ + C.(1 - c$_1$ - c$_2$) + D.c$_1$.c$_2$ + E.c$_2$.(1 - c$_1$ - c$_2$) + F.(1 - c$_1$ - c$_2$).c$_1$ + R.T.[c$_1$.ln(c$_1$) + c$_2$.ln(c$_2$) + (1 - c$_1$ - c$_2$).ln(1 - c$_1$ - c$_2$)]')
 st.write('Where c1, and c2 are two composition of ternary alloy system')
 
 cm1, cm2 = st.columns([1, 2]) 
